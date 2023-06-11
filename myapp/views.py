@@ -9,14 +9,12 @@ def initialize_app():
     return popular_df, similarity_scores
 
 popular_df, similarity_scores = initialize_app()
-
+courses_list = popular_df.to_dict('records')
+context = {
+        'courses': courses_list
+    }
 def index(request):
-    return render(request, 'index1.html', {
-        'course_name': list(popular_df['course_name'].values),
-        'course_univ': list(popular_df['University'].values),
-        'course_difficulty': list(popular_df['difficulty_level'].values),
-        'course_rating': list(popular_df['course_rating'].values),
-    })
+    return render(request, 'index1.html', context)
 
 def recommend_ui(request):
     return render(request, 'recommend1.html')

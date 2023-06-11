@@ -11,7 +11,7 @@
         color:white
     }
 </style>
-<body style="background-color:grey">
+<body style="background-color:#778899">
 
     <nav class="navbar" style="background-color:black">
         <a class="navbar-brand">Course Recommender</a>
@@ -25,17 +25,17 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h1 class="text-black" style="font-size:50px">Courses</h1>
+                <h1 class="text-black" style="font-size:50px"><strong>Courses</strong></h1>
             </div>
 
-            {% for course, univ, difficulty, rating in courses %}
+            {% for course in courses %}
                 <div class="col-md-6" style="margin-top:50px">
                     <div class="card">
-                        <div class="card-body">
-                            <p class="text-white">Course:{{ course }}</p>
-                            <p class="text-white">University:{{ univ }}</p>
-                            <p class="text-white">Level:{{ difficulty }}</p>
-                            <p class="text-white">Rating:{{ rating }}</p>
+                        <div class="card-body text-black">
+                            <h4>{{ course.course_name }}</h4>
+                            <p>University: {{ course.University }}</p>
+                            <p>Difficulty: {{ course.difficulty_level }}</p>
+                            <p>Rating: {{ course.course_rating }}</p>
                         </div>
                     </div>
                 </div>
